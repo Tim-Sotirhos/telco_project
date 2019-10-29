@@ -55,14 +55,28 @@ def split_my_data_bl(df):
     X_train, X_test, y_train, y_test = train_test_split(X, y, train_size = .80, random_state = 123)
     return X, y, X_train, X_test, y_train, y_test
 
+def split_my_data_rf(df):
+    X = df.drop(columns = ["churn", "customer_id"])
+    y = df[['churn']]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, train_size = .80, random_state = 123)
+    return X, y, X_train, X_test, y_train, y_test
 
-
-def prep_telco_data(data):
+def encoder_all(df):
     encoder = LabelEncoder()
-    data = data.drop(columns=['contract_type', 'internet_service_type','payment_type'])
-    data['total_charges'] = pd.to_numeric(data['total_charges'],errors='coerce')
-    encode_list = ['gender','partner', 'dependents', 'phone_service','multiple_lines', 'online_security', 'online_backup','device_protection','tech_support','streaming_tv', \
+    df_encoded = df.drop(columns=['contract_type', 'internet_service_type','payment_type'])
+    encode_list = ['gender','partner', 'dependents', 'phone_service','multiple_lines', 'online_security', \
+                  'online_backup','device_protection','tech_support','streaming_tv', \
                   'streaming_movies', 'paperless_billing', 'churn']
     for c in encode_list:
-        data[c] = encoder.fit_transform(data[c])
-    return data
+        df_encoded[c] = encoder.fit_transform(df_encoded[c])
+    return df_encoded
+
+def encoder_all_rf(df):
+    encoder = LabelEncoder()
+    df_encoded_rf = df.drop(columns=['contract_type', 'internet_service_type','payment_type','gender','phone_service','streaming_movies','tech_support'])
+    encode_list = ['partner', 'dependents','multiple_lines', 'online_security', \
+                  'online_backup','device_protection','streaming_tv', \
+                  'paperless_billing', 'churn']
+    for c in encode_list:
+        df_encoded_rf[c] = encoder.fit_transform(df_encoded_rf[c])
+    return df_encoded_rf
