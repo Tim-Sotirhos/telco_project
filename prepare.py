@@ -7,7 +7,7 @@ Handle Missing Values
 Handle erroneous data and/or outliers you wish to address
 encode variables as needed
 scale data as needed
-new feature that represents tenure in years
+new feature that represents tenure in years (code in notebook)
 create single variable representing the information from phone_service and multiple_lines
 do the same using dependents and partner
 other ways to merge variables, such as streaming_tv & streaming_movies, online_security & online_backup
