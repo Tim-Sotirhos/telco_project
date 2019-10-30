@@ -34,8 +34,6 @@ Required to answer the following questions:
 
 Summarize your conclusions, provide clear answers to the specific questions, and summarize any takeaways/action plan from the work above.
 
-
-
 Modeling:
 
 Feature Selection: Are there any variables that seem to provide limited to no additional information? If so, remove them.
