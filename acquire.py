@@ -1,3 +1,17 @@
+'''
+Acquisition Phase:
+
+Acquire.py will acquire data from the customers table from the telco_churn database\
+on the codeup data science database server. You will want to join some tables as part of your query.
+This data should end up in a pandas data frame.
+
+Notebook
+
+run acquire.py
+summarize data (.info(), .describe(), .value_counts(), ...)
+plot distributions of individual variables
+'''
+
 import pandas as pd
 import numpy as np
 import env
