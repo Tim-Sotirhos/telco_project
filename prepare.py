@@ -55,6 +55,13 @@ def split_my_data_bl(df):
     X_train, X_test, y_train, y_test = train_test_split(X, y, train_size = .80, random_state = 123)
     return X, y, X_train, X_test, y_train, y_test
 
+def split_my_data_rf(df):
+    X = df.drop(columns = ["churn", "customer_id"])
+    y = df[['churn']]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, train_size = .80, random_state = 123)
+    return X, y, X_train, X_test, y_train, y_test
+
+
 def split_my_data_csv(df):
     X = df.drop(columns = ["churn"])
     y = df[['churn']]
